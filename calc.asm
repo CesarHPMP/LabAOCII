@@ -1,23 +1,21 @@
 .data
-operador: .word +, -, *, / #vetor e operadores
 .text
 .globl main
-main:
-    la $s7, operador         # Carrega o endereço base do vetor em $a0             
-    lw $s0, 0($s7)       # Inicializa $s0 com o primeiro elemento do vetor (min = array[0])
-    
+main:  
     li $v0, 12
     li $t1, 0
     syscall
-loop:
-    addi $t1, $t1, 4
-    add  $t0, $s0, $t1
-    bne  $v0, $t0, loop
     
-    beq $t1, $t0, sum
-    beq $t1, $t0, subt
-    beq $t1, $t0, multp
-    beq $t1, $t0, divd
+loop:
+    addi $t1, $t1, 1
+    beq $t1, $v0, sum
+    addi $t1, $t1, 1
+    beq $t1, $v0, subt
+    addi $t1, $t1, 1
+    beq $t1, $v0, multp
+    addi $t1, $t1, 1
+    beq $t1, $v0, divd
+    j fim
     
 sum:
 	li $v0, 6
