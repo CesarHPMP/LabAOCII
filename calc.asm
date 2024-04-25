@@ -49,6 +49,7 @@ multp:
 	syscall
 	lw $t2, 0($f0)
 	mult  $f12, $t2
+	mflo $f12
 	li $v0, 2
 	syscall
 	j fim
@@ -60,7 +61,7 @@ divd:
 	li $v0, 6
 	syscall
 	lw $t2, 0($f0)
-	div  $f12, $t1, $t2
+	div   $f12, $t1, $t2
 	li $v0, 2
 	syscall
     j fim          
