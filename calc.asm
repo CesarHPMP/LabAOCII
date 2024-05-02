@@ -1,6 +1,6 @@
 .data
 mensagem: .asciiz "\nSelecione opcao[1 para soma, 2 para subtacao, 3 para multiplicacao e 4 para divisao]\n\0"
-mensagemf: .asciiz "\nMais uma operacao? 1 para sim e 0 para nao"
+mensagemf: .asciiz "\nMais uma operacao? 1 para sim e 0 para nao\n"
 .text
 .globl main
 wrap:
@@ -22,7 +22,7 @@ loop:
     beq $t1, $v0, multp
     addi $t1, $t1, 1
     beq $t1, $v0, divd
-    j fim
+    j main
     
 sum:
 	li $v0, 5
