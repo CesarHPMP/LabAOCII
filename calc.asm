@@ -3,7 +3,7 @@ mensagem: .asciiz "Selecione opcao[1 para soma, 2 para subtacao, 3 para mu,tipli
 .text
 .globl main
 main:  
-	lw $a0, mensagem
+	la $a0, mensagem
 	li $v0, 4
 	syscall
     li $v0, 5
