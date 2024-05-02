@@ -1,8 +1,9 @@
 .data
+
 .text
 .globl main
 main:  
-    li $v0, 12
+    li $v0, 5
     li $t1, 0
     syscall #syscall
     
@@ -18,51 +19,51 @@ loop:
     j fim
     
 sum:
-	li $v0, 6
+	li $v0, 5
 	syscall
-	lw $t1, 0($f0)
-	li $v0, 6
+	move $t1, $v0
+	li $v0, 5
 	syscall
-	lw $t2, 0($f0)
-	add $f12, $t1, $t2
-	li $v0, 2
+	move $t2, $v0
+	add $a0, $t1, $t2
+	li $v0, 1
 	syscall
 	j fim
 	
 subt:
-	li $v0, 6
+	li $v0, 5
 	syscall
-	lw $t1, 0($f0)
-	li $v0, 6
+	move $t1, $v0
+	li $v0, 5
 	syscall
-	lw $t2, 0($f0)
-	sub $f12, $t1, $t2
-	li $v0, 2
+	move $t2, $v0
+	sub $a0, $t1, $t2
+	li $v0, 1
 	syscall
 	j fim
 
 multp:
-	li $v0, 6
+	li $v0, 5
 	syscall
-	lw $f12, 0($f0)
-	li $v0, 6
+	move $t1, $v0
+	li $v0, 5
 	syscall
-	lw $t2, 0($f0)
-	mult  $f12, $t2
-	mflo $f12
-	li $v0, 2
+	move $t2, $v0
+	mult  $t1, $t2
+	mflo $a0
+	li $v0, 1
 	syscall
 	j fim
 	
 divd:
-	li $v0, 6
+	li $v0, 5
 	syscall
-	lw $t1, 0($f0)
-	li $v0, 6
+	move $t1, $v0
+	li $v0, 5
 	syscall
-	lw $t2, 0($f0)
-	div $f12, $t1, $t2
-	li $v0, 2
+	move $t2, $v0
+	div $a0, $t1, $t2
+	li $v0, 1
 	syscall
     j fim          
 fim:  
