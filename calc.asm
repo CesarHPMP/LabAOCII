@@ -1,7 +1,10 @@
 .data
-mensagem: .asciiz "Selecione opcao[1 para soma, 2 para subtacao, 3 para mu,tiplicacao e 4 para divisao]\n\0"
+mensagem: .asciiz "\nSelecione opcao[1 para soma, 2 para subtacao, 3 para multiplicacao e 4 para divisao]\n\0"
+mensagemf: .asciiz "\nMais uma operacao? 1 para sim e 0 para nao"
 .text
 .globl main
+wrap:
+
 main:  
 	la $a0, mensagem
 	li $v0, 4
@@ -68,7 +71,15 @@ divd:
 	div $a0, $t1, $t2
 	li $v0, 1
 	syscall
-    j fim          
+    j fim 
+             
 fim:  
+	la $a0, mensagemf
+	li $v0, 4
+	syscall
+	li $v0, 5
+	syscall
+	beq $v0, 1, wrap
+
     li $v0, 10             # Encerra o programa
     syscall
