@@ -1,8 +1,11 @@
 .data
-
+mensagem: .asciiz "Selecione opcao[1 para soma, 2 para subtacao, 3 para mu,tiplicacao e 4 para divisao]\n\0"
 .text
 .globl main
 main:  
+	lw $a0, mensagem
+	li $v0, 4
+	syscall
     li $v0, 5
     li $t1, 0
     syscall #syscall
