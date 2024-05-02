@@ -4,7 +4,7 @@
 main:  
     li $v0, 12
     li $t1, 0
-    syscall
+    syscall #syscall
     
 loop:
     addi $t1, $t1, 1
