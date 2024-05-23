@@ -14,7 +14,8 @@ main:
     j fim
     
 power2:
-	sll $a0, $a0, 2
+	li $t0, 1
+	sllv  $a0, $t0, $a0
 	jr $ra
 	
 fim:
